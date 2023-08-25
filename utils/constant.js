@@ -22,7 +22,7 @@ let constant = {
         "loginUserNotExist"         : "User Not Exist, Please Register And Try Again",
         "passwordNotMatch"          : "Password Not Match",
         "loginSuccess"              : "Login Successful",
-        "regionAlreadyExist"        : "Region Name Already Exist","blankCommonMessage" : "connot be blank",
+        "regionAlreadyExist"        : "Region Name Already Exist",
         "blankEmailMessage"         : "EmailId Connot be Blank",
         "blankPasswordMessage"      : "Please Provide Your Password",
         "blankMobileNo"             : "Mobile No Cannot Be Blank",
