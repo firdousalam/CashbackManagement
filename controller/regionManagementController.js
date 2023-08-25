@@ -78,33 +78,39 @@ const regionController = {
     },
     "updateRegion": function(req,res){
         console.log("Update Region");
-        let updateData = {
-            "region" : req.body.region,
-            "timeZone" : req.body.timeZone,
-            "displayTimeZone" : req.body.displayTimeZone,
-            "countryCode" : req.body.countryCode,
-            "status"    : CONSTANT.applicationConstant.activeStatus
-        };
-        regionModel.find({"status" : CONSTANT.applicationConstant.activeStatus,
-                        "region" : req.body.region,
-                        '_id': {$ne : req.params.regionId}}).then((list)=>{
-            if(list.length>0){
-                httpResponse.message = CONSTANT.validation.regionAlreadyExist;
-                httpResponse.data = "";
-                res.status(403).send(httpResponse);
-            }else{
-                regionModel.findOneAndUpdate({"_id":req.params.regionId},updateData)
-                .then((region)=>{
-                    httpResponse.message = CONSTANT.validation.success;
-                    httpResponse.data = updateData;
-                    res.status(200).send(httpResponse);
-                })
-            }
-          }).catch((err)=>{
-            httpResponse.message = CONSTANT.validation.error;
-            httpResponse.data = err;
-            res.status(500).send(httpResponse);
-          })
+        if(validation.blankCheck(req.body.region) 
+        && validation.blankCheck(req.body.timeZone)
+        && validation.blankCheck(req.body.displayTimeZone)
+        && validation.blankCheck(req.body.countryCode)
+        ){
+            let updateData = {
+                "region" : req.body.region,
+                "timeZone" : req.body.timeZone,
+                "displayTimeZone" : req.body.displayTimeZone,
+                "countryCode" : req.body.countryCode,
+                "status"    : CONSTANT.applicationConstant.activeStatus
+            };
+            regionModel.find({"status" : CONSTANT.applicationConstant.activeStatus,
+                            "region" : req.body.region,
+                            '_id': {$ne : req.params.regionId}}).then((list)=>{
+                if(list.length>0){
+                    httpResponse.message = CONSTANT.validation.regionAlreadyExist;
+                    httpResponse.data = "";
+                    res.status(403).send(httpResponse);
+                }else{
+                    regionModel.findOneAndUpdate({"_id":req.params.regionId},updateData)
+                    .then((region)=>{
+                        httpResponse.message = CONSTANT.validation.success;
+                        httpResponse.data = updateData;
+                        res.status(200).send(httpResponse);
+                    })
+                }
+            }).catch((err)=>{
+                httpResponse.message = CONSTANT.validation.error;
+                httpResponse.data = err;
+                res.status(500).send(httpResponse);
+            })
+        }
     }
 }
 module.exports = regionController;
