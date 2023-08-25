@@ -92,7 +92,7 @@ const userController = {
     },
     "updateAdmin" : function(req,res){
        // we will call one function and do validation from there
-       const validation = commonFunction.adminValidation(req.body)
+       const validation = commonFunction.adminValidationUpdate(req.body)
        
        if(validation.status == true){// is validation successfull
            
@@ -124,7 +124,12 @@ const userController = {
                 httpResponse.data = error;
                 res.status(500).send(httpResponse);
             })
-        }
+        }else{
+           
+            httpResponse.message = validation.message;
+            httpResponse.data = "";
+            res.status(validation.statusCode).send(httpResponse);
+         }
     }
 }
 module.exports = userController;
