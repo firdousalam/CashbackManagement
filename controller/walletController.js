@@ -65,7 +65,9 @@ const walletController = {
         console.log("getting all rewards");
         let { page, size, sort } = req.query;
         const { limit, offset } = commonFunction.getPagination(page, size);//{ offset, limit }
-        walletModel.find({ "walletType" : CONSTANT.applicationConstant.walletType},{ offset, limit })
+        walletModel.find({ "walletType" : CONSTANT.applicationConstant.walletType})
+        .skip(offset)
+        .limit(limit)
         .then((list)=>{
             httpResponse.message = CONSTANT.validation.success;
             httpResponse.data = list;
@@ -83,7 +85,9 @@ const walletController = {
         if(validation.status == true){// is validation successfull
             let { page, size, sort } = req.query;
             const { limit, offset } = commonFunction.getPagination(page, size);//{ offset, limit }
-            walletModel.find({"user" : req.params.userId,"walletType" : CONSTANT.applicationConstant.walletType},{ offset, limit })
+            walletModel.find({"user" : req.params.userId,"walletType" : CONSTANT.applicationConstant.walletType})
+            .skip(offset)
+            .limit(limit)
             .then((list)=>{
                 httpResponse.message = CONSTANT.validation.success;
                 httpResponse.data = list;
