@@ -110,6 +110,11 @@ const regionController = {
                 httpResponse.data = err;
                 res.status(500).send(httpResponse);
             })
+        }else{
+          
+            httpResponse.message = CONSTANT.validation.blankCommonMessage;
+            httpResponse.data = "";
+            res.status(403).send(httpResponse);
         }
     }
 }
