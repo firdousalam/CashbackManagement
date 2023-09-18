@@ -70,8 +70,12 @@ const loginController = {
         const validation = commonFunction.loginUserValidation(req.body)
         if(validation.status == true){
             // user exist or not with the email id provided if exist get it details
-            adminModel.find({emailId: emailId}).then((data) => {
-                console.log("getting data",data)
+            adminModel.find({emailId: emailId}).populate({
+                path: "adminType", options: {
+                    sort: { title: 1 }, limit: 2
+                }
+            }).then((data) => {
+               
                 //let UserData = dat
                if (data.length==0) {//if it do not have any user with given emailId
                     httpResponse.message = CONSTANT.validation.loginUserNotExist;
@@ -91,8 +95,6 @@ const loginController = {
                             httpResponse.data = "";
                             res.status(403).send(httpResponse);
                         } else {
-                            // we are good 
-                            // create JWT Token 
                             let payLoad = {
                                 email           : data[0].emailId,
                                 firstName       : data[0].firstName,
@@ -326,7 +328,7 @@ const loginController = {
                          };
             }
             console.log(condition);
-            adminModel.find(condition).then((data)=>{
+            adminModel.find(condition).populate("adminType").then((data)=>{
                 console.log("data",data);
                 if(data.length==0){
                     
