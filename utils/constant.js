@@ -54,7 +54,8 @@ let constant = {
         "blankAmount"               : "Amount Cannot Be Blank",
         "InSufficientBalance"       : "In Sufficient Balance",
         "blankCashBackId"           : "Please Select Cashback Details",
-        "cashbackAlreadyUsed"       : "Cashback Already Being Used"
+        "cashbackAlreadyUsed"       : "Cashback Already Being Used",
+        "noAccess"                  : "User Dont Have Access To Perform This Task"
 
 
     },

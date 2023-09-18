@@ -38,7 +38,8 @@ const loginController = {
                             let payLoad = {
                                 email       : data[0].emailId,
                                 firstName   : data[0].firstName,
-                                type        : "USER"
+                                type        : "USER",
+                                adminType   : "" 
                             }
                             commonFunction.encryptJWT(payLoad,function(err, token) {
                                 console.log(err);

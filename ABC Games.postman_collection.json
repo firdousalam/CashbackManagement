@@ -1,0 +1,1335 @@
+{
+	"info": {
+		"_postman_id": "6f46a0fa-209b-47ff-a065-a6673c8727f3",
+		"name": "ABC Games Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "4639591",
+		"_collection_link": "https://gold-space-46892.postman.co/workspace/New-Team-Workspace~2ef41d74-8eb8-4479-9d85-c6e8ca5619f9/collection/4639591-6f46a0fa-209b-47ff-a065-a6673c8727f3?action=share&creator=4639591&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Region",
+			"item": [
+				{
+					"name": "addNewRegion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"region\": \"Bangladesh/Dhaka\",\r\n    \"status\": \"ACTIVE\",\r\n    \"timeZone\": \"Asia/Bangladesh\",\r\n    \"displayTimeZone\": \"SGP\",\r\n    \"countryCode\": \"+60\"\r\n}"
+						},
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/region/addNewRegion"
+					},
+					"response": []
+				},
+				{
+					"name": "GetRegion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://abc365stage-2z2la.ondigitalocean.app/region/getRegion/64b2cbe407cde656c8b84b81?TOKEN=XXXXXXXXXXXXXXXXXX",
+							"protocol": "https",
+							"host": [
+								"abc365stage-2z2la",
+								"ondigitalocean",
+								"app"
+							],
+							"path": [
+								"region",
+								"getRegion",
+								"64b2cbe407cde656c8b84b81"
+							],
+							"query": [
+								{
+									"key": "TOKEN",
+									"value": "XXXXXXXXXXXXXXXXXX"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateRegion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"region\": \"Singapore\",\r\n    \"status\": \"ACTIVE\",\r\n    \"timeZone\": \"Asia/Singapore\",\r\n    \"displayTimeZone\": \"SGP\",\r\n    \"countryCode\" : \"+80\"\r\n  \r\n}"
+						},
+						"url": {
+							"raw": "https://abc365stage-2z2la.ondigitalocean.app/region/updateRegion/64c3bfb84ae7a1a1f8ce6f0f?=",
+							"protocol": "https",
+							"host": [
+								"abc365stage-2z2la",
+								"ondigitalocean",
+								"app"
+							],
+							"path": [
+								"region",
+								"updateRegion",
+								"64c3bfb84ae7a1a1f8ce6f0f"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllRegion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://abc365stage-2z2la.ondigitalocean.app/region/getAllRegion?page=0&size=2",
+							"protocol": "https",
+							"host": [
+								"cashbackmanagement",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"region",
+								"getAllRegion"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AdminType",
+			"item": [
+				{
+					"name": "addNewAdminType",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"adminType\" : \"Malaysia Admin Type1\",\r\n    \"region\"    : [\"64ce768d12c043d5ee77fbdd\"]\r\n}"
+						},
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/adminType/addAdminType"
+					},
+					"response": []
+				},
+				{
+					"name": "getAdminType",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/adminType/getAdminType"
+					},
+					"response": []
+				},
+				{
+					"name": "getParticularAdminType",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://abc365stage-2z2la.ondigitalocean.app/adminType/getParticularAdminType/64c529f39e614f813929b33e?=",
+							"protocol": "https",
+							"host": [
+								"abc365stage-2z2la",
+								"ondigitalocean",
+								"app"
+							],
+							"path": [
+								"adminType",
+								"getParticularAdminType",
+								"64c529f39e614f813929b33e"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateAdminType",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"adminType\": \"super2\",\r\n        \"region\": [\"64b2cbe407cde656c8b84b81\",\"64b2ccfa07cde656c8b84b83\"],\r\n        \"status\" : \"ACTIVE\"\r\n    }"
+						},
+						"url": {
+							"raw": "https://abc365stage-2z2la.ondigitalocean.app/adminType/updateAdminType/64c522baf963bdf8498922cd?",
+							"protocol": "https",
+							"host": [
+								"abc365stage-2z2la",
+								"ondigitalocean",
+								"app"
+							],
+							"path": [
+								"adminType",
+								"updateAdminType",
+								"64c522baf963bdf8498922cd"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "AddNewAdmin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\" : \"Testing OTP new\",\r\n    \"lastName\" : \"User\",\r\n    \"password\" : \"123456\",\r\n    \"address\" : \"address kolkata\",\r\n    \"emailId\" : \"25August2023@admin.com\",\r\n    \"mobileNo\" : 2508202323,\r\n    \"adminType\" : [\"64ce76a712c043d5ee77fbe0\"]\r\n}"
+						},
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/admin/addAdmin/"
+					},
+					"response": []
+				},
+				{
+					"name": "getAdminDetails",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/admin/getParticularAdmin/64c547ec608a28b6ff403c42"
+					},
+					"response": []
+				},
+				{
+					"name": "updateAdmin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"_id\": \"64c547ec608a28b6ff403c42\",\r\n        \"firstName\": \"Admin new\",\r\n        \"lastName\": \"User\",\r\n        \"address\": \"address Mumbai\",\r\n        \"emailId\": \"firdous.alam2058@admin.com\",\r\n        \"mobileNo\": 1234567890,\r\n        \"adminType\": [ \"64c521381b3e0784907a4840\"],\r\n        \"status\" : \"INACTIVE\"\r\n }"
+						},
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/admin/updateAdmin/64c547ec608a28b6ff403c42"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllAdmin",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "TOKEN",
+								"value": "XXXXXX",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://abc365stage-2z2la.ondigitalocean.app/admin/getAdmins?page=0&size=2",
+							"protocol": "https",
+							"host": [
+								"cashbackmanagement",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"admin",
+								"getAdmins"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Admin Related API's"
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "LoginAdmin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"emailId\" : \"20August2023@admin.com\",\r\n    \"password\" :  \"1234567\"\r\n}"
+						},
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/login/adminLogin"
+					},
+					"response": []
+				},
+				{
+					"name": "generateAdminOTP",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"emailId\" : \"20August2023@admin.com\",\r\n    \"type\" :    \"EMAIL\"\r\n}"
+						},
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/login/generateOTPAdmin"
+					},
+					"response": []
+				},
+				{
+					"name": "updateAdminPassword",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"emailId\" : \"20August2023@admin.com\",\r\n    \"type\" :    \"EMAIL\",\r\n    \"otp\"  : \"333533\",\r\n    \"password\" : \"1234567\"\r\n}"
+						},
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/login/adminUpdatePassword"
+					},
+					"response": []
+				},
+				{
+					"name": "LoginAdminUsingOTP",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"emailId\" : \"20August2023@admin.com\",\r\n    \"type\" :    \"EMAIL\",\r\n    \"otp\"  : \"617062\"\r\n}"
+						},
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/login/loginAdminUsingOTP"
+					},
+					"response": []
+				},
+				{
+					"name": "loginUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"emailId\" : \"firdous.alam2058@gmail.com\",\r\n    \"password\" :  \"1234567\"\r\n}"
+						},
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/login/userLogin"
+					},
+					"response": []
+				},
+				{
+					"name": "generateUserOTP",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"emailId\" : \"firdous.alam2058@gmail.com\",\r\n    \"type\" :    \"EMAIL\"\r\n}"
+						},
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/login/generateOTPUser"
+					},
+					"response": []
+				},
+				{
+					"name": "updateUserPassword",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"emailId\"    : \"firdous.alam2058@gmail.com\",\r\n    \"type\"      :  \"EMAIL\",\r\n    \"otp\"       : \"123846\",\r\n    \"password\"  : \"1234567\"\r\n}"
+						},
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/login/userUpdatePassword"
+					},
+					"response": []
+				},
+				{
+					"name": "LoginAdminWithOTP",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"emailId\" : \"20August2024@admin.com\",\r\n    \"type\" :    \"EMAIL\",\r\n    \"otp\" : 541993\r\n}"
+						},
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/login/loginAdminUsingOTP"
+					},
+					"response": []
+				},
+				{
+					"name": "LoginUserUsingOTP",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"emailId\" : \"firdous.alam2058@gmail.com\",\r\n    \"type\" :    \"EMAIL\",\r\n    \"otp\" : \"126336\"\r\n}"
+						},
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/login/loginUserUsingOTP"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "addUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\" : \"test 20Aougust\",\r\n    \"lastName\" : \"User\",\r\n    \"password\" : \"123456\",\r\n    \"address\" : \"address kolkata\",\r\n    \"emailId\" : \"firdous.alam2059@gmail.com\",\r\n    \"region\" : \"64c3bfb84ae7a1a1f8ce6f0f\",\r\n    \"mobileNo\" : 2008102377\r\n}"
+						},
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/user/addUser"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllUser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/user/getUsers"
+					},
+					"response": []
+				},
+				{
+					"name": "getParticularUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://abc365stage-2z2la.ondigitalocean.app/user/getUser/64e1d73a4c7fe80b258bcb73?TOKEN=XXXXXXXXXX",
+							"protocol": "https",
+							"host": [
+								"abc365stage-2z2la",
+								"ondigitalocean",
+								"app"
+							],
+							"path": [
+								"user",
+								"getUser",
+								"64e1d73a4c7fe80b258bcb73"
+							],
+							"query": [
+								{
+									"key": "TOKEN",
+									"value": "XXXXXXXXXX"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"status\": \"ACTIVE\",\r\n        \"firstName\": \"Testing new\",\r\n        \"lastName\": \"Update\",\r\n        \"emailId\": \"firdous.alam2058@203888@ggm1.com\",\r\n        \"mobileNo\" :\"1122334455\"\r\n    }"
+						},
+						"url": {
+							"raw": "https://abc365stage-2z2la.ondigitalocean.app/user/updateUser/64ce78b812c043d5ee77fbf3?TOKEN=XXXXXXXXXXX",
+							"protocol": "https",
+							"host": [
+								"abc365stage-2z2la",
+								"ondigitalocean",
+								"app"
+							],
+							"path": [
+								"user",
+								"updateUser",
+								"64ce78b812c043d5ee77fbf3"
+							],
+							"query": [
+								{
+									"key": "TOKEN",
+									"value": "XXXXXXXXXXX"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserByRegion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://abc365stage-2z2la.ondigitalocean.app/user/getUserByRegion/64b2ccfa07cde656c8b84b83?TOKEN=XXXXXXXXXXX",
+							"protocol": "https",
+							"host": [
+								"abc365stage-2z2la",
+								"ondigitalocean",
+								"app"
+							],
+							"path": [
+								"user",
+								"getUserByRegion",
+								"64b2ccfa07cde656c8b84b83"
+							],
+							"query": [
+								{
+									"key": "TOKEN",
+									"value": "XXXXXXXXXXX"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rate",
+			"item": [
+				{
+					"name": "addRate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"India R1\",\r\n    \"rate\" : 500,\r\n    \"region\" : \"64b2cbe407cde656c8b84b81\",\r\n    \"rateType\" : \"POINT\"\r\n}\r\n"
+						},
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/rate/addRate/"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllRate",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://abc365stage-2z2la.ondigitalocean.app/rate/getAllRate/?",
+							"protocol": "https",
+							"host": [
+								"abc365stage-2z2la",
+								"ondigitalocean",
+								"app"
+							],
+							"path": [
+								"rate",
+								"getAllRate",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getParticularRate",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://abc365stage-2z2la.ondigitalocean.app/rate/getRate/64d92175c36e3f2a31eeffe4?",
+							"protocol": "https",
+							"host": [
+								"abc365stage-2z2la",
+								"ondigitalocean",
+								"app"
+							],
+							"path": [
+								"rate",
+								"getRate",
+								"64d92175c36e3f2a31eeffe4"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateRate",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"MalaysiaR12\",\r\n    \"rate\" : 600,\r\n    \"region\" : \"64b2ccfa07cde656c8b84b83\",\r\n    \"rateType\" : \"POINT\",\r\n    \"status\"   : \"ACTIVE\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://abc365stage-2z2la.ondigitalocean.app/rate/updateRate/64d92175c36e3f2a31eeffe4",
+							"protocol": "https",
+							"host": [
+								"abc365stage-2z2la",
+								"ondigitalocean",
+								"app"
+							],
+							"path": [
+								"rate",
+								"updateRate",
+								"64d92175c36e3f2a31eeffe4"
+							],
+							"query": [
+								{
+									"key": "TOKEN",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRateByRegion",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/rate/getRateByRegion/64b2cbe407cde656c8b84b81"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rewards",
+			"item": [
+				{
+					"name": "addNewRewards",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{                              \r\n    \"rewardName\"            : \"ABC Rewards 3673\",\r\n    \"rewardType\"            : \"YOUTUBE ADS\",\r\n    \"region\"                : \"64c5fe5c7fc830bb23d6659f\",\r\n    \"rewardConversionRate\"  : \"64d92175c36e3f2a31eeffe4\",\r\n    \"description\"           : \"This is youtube Rewards\",\r\n    \"rewardsUrl\"            : \"http://localhost:3000/rate/getAllRate/\",\r\n    \"startDate\"             : \"11-08-2023\",\r\n    \"endDate\"               : \"10-03-2024\",\r\n    \"duration\"              : 30\r\n}"
+						},
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/rewards/addreward/"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllRewards",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/rewards/getAllReward/"
+					},
+					"response": []
+				},
+				{
+					"name": "getParticularRewards",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/rewards/getReward/64e1e11adab3d8c0bb9cde09"
+					},
+					"response": []
+				},
+				{
+					"name": "updateRewards",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"rewardName\": \"ABC Rewards\",\r\n            \"rewardType\": \"YOUTUBE ADS\",\r\n            \"region\": \"64b2ccfa07cde656c8b84b83\",\r\n            \"rewardConversionRate\": \"64d92175c36e3f2a31eeffe4\",\r\n            \"description\": \"This is youtube Rewards updated\",\r\n            \"rewardsUrl\": \"http://localhost:3000/rate/getAllRate/\",\r\n            \"status\": \"ACTIVE\",\r\n            \"startDate\": \"2023-11-07T18:30:00.000Z\",\r\n            \"endDate\": \"2024-10-02T18:30:00.000Z\",\r\n            \"dateTime\": \"2023-08-13T19:32:10.864Z\"\r\n}"
+						},
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/rewards/updatereward/64d92fba2bf3bd9e152e89f0"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserWallet",
+			"item": [
+				{
+					"name": "addUserWallet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\"                  : \"64e87ae16f733f05a95e7887\",\r\n    \"insertedBy\"            : \"USER\",\r\n    \"adminId\"               : \"\",\r\n    \"reward\"                : \"64e7905f6695b574dd7ec5a3\",\r\n    \"region\"                : \"64c5fe5c7fc830bb23d6659f\",\r\n    \"description\"           : \"rewards earn by watching youtube ads\",\r\n    \"walletType\"            : \"WALLET\",\r\n    \"startDate\"             : \"2023-08-20T09:31:03.899Z\",\r\n    \"endDate\"               : \"2024-08-20T09:31:03.899Z\",\r\n    \"amount\"                : 100\r\n}"
+						},
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/wallet/addNewWallet/"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllUserWallet",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/wallet/getAllWallet/"
+					},
+					"response": []
+				},
+				{
+					"name": "getUserWallet",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://abc365stage-2z2la.ondigitalocean.app/wallet/getUserWallet/64e1f351f7d0c98d9952da24?TOKEN=XXXXXXXXX",
+							"protocol": "https",
+							"host": [
+								"abc365stage-2z2la",
+								"ondigitalocean",
+								"app"
+							],
+							"path": [
+								"wallet",
+								"getUserWallet",
+								"64e1f351f7d0c98d9952da24"
+							],
+							"query": [
+								{
+									"key": "TOKEN",
+									"value": "XXXXXXXXX"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getParticularWalletDetails",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://abc365stage-2z2la.ondigitalocean.app/wallet/getParticularWalletDetails/64e1f7dcaff9c52cd28aeb34?",
+							"protocol": "https",
+							"host": [
+								"abc365stage-2z2la",
+								"ondigitalocean",
+								"app"
+							],
+							"path": [
+								"wallet",
+								"getParticularWalletDetails",
+								"64e1f7dcaff9c52cd28aeb34"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Redeem",
+			"item": [
+				{
+					"name": "AddUserRedeem",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"user\"                  : \"64e1f351f7d0c98d9952da24\",\r\n    \"insertedBy\"            : \"USER\",\r\n    \"description\"           : \"User Redeem Amount 500\",\r\n    \"redeemId\"              : \"64e7907e6695b574dd7ec5a7\"\r\n}"
+						},
+						"url": "http://localhost:3000/wallet/addRedeem/"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllRedeemType",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/wallet/getAllWalletRedeem/"
+					},
+					"response": []
+				},
+				{
+					"name": "getRedeemByUser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/wallet/getUserWalletRedeem/64e1f351f7d0c98d9952da24"
+					},
+					"response": []
+				},
+				{
+					"name": "getUserWalletRedeemBalance",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/wallet/getUserWalletBalance/64e1f351f7d0c98d9952da24"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "totalCashBackEarnToday",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/reports/totalCashBackEarnToday"
+					},
+					"response": []
+				},
+				{
+					"name": "totalCashBackRedeemToday",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/reports/totalCashBackRedeemToday"
+					},
+					"response": []
+				},
+				{
+					"name": "totalCashBackEarned",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://abc365stage-2z2la.ondigitalocean.app/reports/totalCashBackEarned?",
+							"protocol": "https",
+							"host": [
+								"abc365stage-2z2la",
+								"ondigitalocean",
+								"app"
+							],
+							"path": [
+								"reports",
+								"totalCashBackEarned"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "totalCashBackRedeem",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": "https://abc365stage-2z2la.ondigitalocean.app/reports/totalCashBackRedeem"
+					},
+					"response": []
+				},
+				{
+					"name": "totalCashBackEarnByRegionAndDate",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://abc365stage-2z2la.ondigitalocean.app/reports/totalCashBackEarnByRegionAndDate?startDate=2023-08-02&endDate=2023-08-24",
+							"protocol": "https",
+							"host": [
+								"cashbackmanagement",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"reports",
+								"totalCashBackEarnByRegionAndDate"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2023-08-02"
+								},
+								{
+									"key": "endDate",
+									"value": "2023-08-24"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "totalCashBackRedeemByRegionAndDate",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://abc365stage-2z2la.ondigitalocean.app/reports/totalCashBackRedeemByRegionAndDate?startDate=2023-08-23&endDate=2023-08-24",
+							"protocol": "https",
+							"host": [
+								"cashbackmanagement",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"reports",
+								"totalCashBackRedeemByRegionAndDate"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2023-08-23"
+								},
+								{
+									"key": "endDate",
+									"value": "2023-08-24"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CashBackEarnByRegionAndDate",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://abc365stage-2z2la.ondigitalocean.app/reports/CashBackRedeemByRegionAndDate?startDate=2023-08-23&endDate=2023-08-24",
+							"protocol": "https",
+							"host": [
+								"cashbackmanagement",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"reports",
+								"CashBackRedeemByRegionAndDate"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2023-08-23"
+								},
+								{
+									"key": "endDate",
+									"value": "2023-08-24"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CashBackRedeemByRegionAndDate",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "XXXXXXXXXX",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://abc365stage-2z2la.ondigitalocean.app/reports/CashBackRedeemByRegionAndDate?startDate=2023-08-10&endDate=2023-08-24",
+							"protocol": "https",
+							"host": [
+								"cashbackmanagement",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"reports",
+								"CashBackRedeemByRegionAndDate"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2023-08-10"
+								},
+								{
+									"key": "endDate",
+									"value": "2023-08-24"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

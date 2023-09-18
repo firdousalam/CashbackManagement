@@ -7,25 +7,29 @@ router.use((req, res, next) => {
    const commonFunction = require("../utils/commonFunction");
    const CONSTANT = require("../utils/constant");
    
-   /*
    //token autheticate
-  let authenticURL = ['/addAdmin','/getAdmins','/getParticularAdmin','/updateAdmin']
-   if(authenticURL.includes(req.path))
-   {
-     let token = req.headers.authorization;
-     commonFunction.decryptJWT(token,function(error,data){
-        if(error){
-           res.status(403).send(CONSTANT.validation.loginUserNotExist);
-        }else{
-           next()
-        } 
-     })
-   }else
-   {
-     next()
-   }
-   */
+  let authenticURL = ['/addNewRegion','/updateRegion']
+  if(authenticURL.includes(req.path))
+  {
+    let token = req.headers.authorization;
+    commonFunction.decryptJWT(token,function(error,data){
+       if(error){
+          res.status(403).send(CONSTANT.validation.loginUserNotExist);
+       }else{
+           if(data.adminType == 'super'){
+              next()
+           }else{
+              
+              res.status(403).send(CONSTANT.validation.noAccess);
+           }
+       } 
+    })
+  }else
+  {
     next()
+  }
+  
+  //next()
 })
 
  router.post("/addNewRegion",function(req,res){

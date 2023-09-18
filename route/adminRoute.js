@@ -6,9 +6,9 @@ const CONSTANT = require("../utils/constant");
 // middleware that is specific to this router
 router.use((req, res, next) => {
    console.log("API Called ",new Date());
-   /*
+   
    //token autheticate
-  let authenticURL = ['/addAdmin','/getAdmins','/getParticularAdmin','/updateAdmin']
+  let authenticURL = ['/addAdmin','/updateAdmin']
    if(authenticURL.includes(req.path))
    {
      let token = req.headers.authorization;
@@ -16,15 +16,22 @@ router.use((req, res, next) => {
         if(error){
            res.status(403).send(CONSTANT.validation.loginUserNotExist);
         }else{
-           next()
+            if(data.adminType == 'super'){
+               next()
+            }else{
+               
+               res.status(403).send(CONSTANT.validation.noAccess);
+               
+            }
+          
         } 
      })
    }else
    {
      next()
    }
-   */
-   next()
+   
+   //next()
 })
 router.post("/addAdmin",function(req,res){
    console.log("adding new admin ");
