@@ -95,12 +95,16 @@ const loginController = {
                             httpResponse.data = "";
                             res.status(403).send(httpResponse);
                         } else {
+                            let adminAdminType = '';
+                            if(data[0].adminType.length>0){
+                                adminAdminType = data[0].adminType[0].adminType;
+                            }
                             let payLoad = {
                                 email           : data[0].emailId,
                                 firstName       : data[0].firstName,
                                 mobileNo        : data[0].mobileNo,
                                 userType        : "ADMIN",
-                                adminType       : data[0].adminType
+                                adminType       : adminAdminType
                             }
                             commonFunction.encryptJWT(payLoad,function(err, token) {
                                 console.log(err);
@@ -338,12 +342,16 @@ const loginController = {
                     httpResponse.data = "";
                     res.status(403).send(httpResponse);
                 }else{
+                    let adminAdminType = '';
+                    if(data[0].adminType.length>0){
+                        adminAdminType = data[0].adminType[0].adminType;
+                    }
                     let payLoad = {
                         email       : data[0].emailId,
                         firstName   : data[0].firstName,
                         mobileNo    : data[0].mobileNo,
                         userType    : "ADMIN",
-                        adminType   : data[0].adminType
+                        adminType   : adminAdminType
                     }
                     console.log(payLoad);
                     commonFunction.encryptJWT(payLoad,function(err, token) {
