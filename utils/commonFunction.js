@@ -15,6 +15,7 @@ const commonFunction = {
             return returnString;
 
        }
+       /*
        // Validating First Name //
        if(!validationFunction.blankCheck(body.firstName)){
             returnString.status = false;
@@ -28,6 +29,7 @@ const commonFunction = {
             returnString.message = CONSTANT.validation.MaxNameLengthMessage;
             return returnString;
         }
+        */
         if(!validationFunction.blankCheck(body.mobileNo)){
             returnString.status = false;
             returnString.statusCode = CONSTANT.responseCode.validation;

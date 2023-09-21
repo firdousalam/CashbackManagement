@@ -4,7 +4,6 @@ const bcrypt = require("bcryptjs")
 const UserSchema = new mongoose.Schema({
   firstName: {
     type: String,
-    required : true,
     trim : true
   },
   lastName: {
@@ -13,7 +12,6 @@ const UserSchema = new mongoose.Schema({
   },
   password : {
     type : String,
-    required : true,
     trim : true
   },
   address: {
@@ -21,9 +19,7 @@ const UserSchema = new mongoose.Schema({
     trim : true
   },
   emailId: { 
-    type: String,
-    unique:true,
-    trim : true
+    type: String
   },
   mobileNo: { 
     type: Number,
@@ -41,6 +37,7 @@ const UserSchema = new mongoose.Schema({
     type : String
   },
   otp : { type : String},
+  otpType : { type : String},
   otpDateTime : {type : Date},
   region      : {type : Schema.Types.ObjectId,ref:'region'},
   walletList  : [{
@@ -51,22 +48,28 @@ const UserSchema = new mongoose.Schema({
 
 UserSchema.pre("save", function (next) {
   const user = this
+  if(typeof user.password != 'undefined'){
 
-  if (this.isModified("password") || this.isNew) {
-    bcrypt.genSalt(10, function (saltError, salt) {
-      if (saltError) {
-        return next(saltError)
-      } else {
-        bcrypt.hash(user.password, salt, function(hashError, hash) {
-          if (hashError) {
-            return next(hashError)
-          }
-          user.password = hash
-          next()
-        })
-      }
-    })
-  } else {
+  
+    if (this.isModified("password") || this.isNew) {
+      bcrypt.genSalt(10, function (saltError, salt) {
+        if (saltError) {
+          return next(saltError)
+        } else {
+          bcrypt.hash(user.password, salt, function(hashError, hash) {
+            if (hashError) {
+              return next(hashError)
+            }
+            user.password = hash
+            next()
+          })
+        }
+      })
+    } else {
+      return next()
+    }
+  }
+  else{
     return next()
   }
 })

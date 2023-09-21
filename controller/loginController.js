@@ -130,7 +130,8 @@ const loginController = {
         if(validation.status == true){
             let updateData = {
                 "otp" : commonFunction.generateRandonPID(),
-                "otpDateTime" : new Date()
+                "otpDateTime" : new Date(),
+                "otpType"  : "Login"
             };
             let condition = '';
             if(req.body.type == CONSTANT.applicationConstant.emailType){
@@ -138,7 +139,7 @@ const loginController = {
             }else{
                 condition = {"mobileNo" : req.body.mobileNo} 
             }
-            userModel.find(condition).then((list)=>{
+            userModel.find(condition).populate("region").then((list)=>{
                 if(list.length==0){
                     httpResponse.message = CONSTANT.validation.adminWithMobileNoOrEmailExist;
                     httpResponse.data = "";
@@ -150,7 +151,8 @@ const loginController = {
                         // you should call email service and send OTP (updateData.otp)
                         EmailFun.sendUserOTP(list[0].emailId,updateData.otp);
                      }else{
-                        SMS.sendOTP(list[0].mobileNo,updateData.otp)
+                        let mobileNo = list[0].region.countryCode + list[0].mobileNo
+                        SMS.sendOTP(mobileNo,updateData.otp)
                      }
                     
                     userModel.findOneAndUpdate({"_id":list[0]._id},updateData)
