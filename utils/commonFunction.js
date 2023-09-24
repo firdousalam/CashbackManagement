@@ -6,6 +6,23 @@ require('dotenv').config()
 let secretKey           = process.env.JWT_SECRET_KEY;
 
 const commonFunction = {
+    "pinGenerationValidation" : function(body){
+        let returnString = {"status" : true,"statusCode":"","message" : "success"}
+        if(!validationFunction.blankCheck(body)){
+          returnString.status = false;
+          returnString.statusCode = CONSTANT.responseCode.validation;
+          returnString.message = CONSTANT.validation.blankCommonMessage;
+          return returnString;
+        }
+        if(!validationFunction.blankCheck(body.pin)){
+          returnString.status = false;
+          returnString.statusCode = CONSTANT.responseCode.validation;
+          returnString.message = CONSTANT.validation.pinValidation;
+          return returnString;
+      }
+        
+        return returnString;
+    },
     "userValidation" : function(body){
         let returnString = {"status" : true,"statusCode":"","message" : "success"}
        if(!validationFunction.blankCheck(body)){
@@ -30,6 +47,12 @@ const commonFunction = {
             return returnString;
         }
         */
+        if(!validationFunction.blankCheck(body.region)){
+          returnString.status = false;
+          returnString.statusCode = CONSTANT.responseCode.validation;
+          returnString.message = CONSTANT.validation.blankRegionSelection;
+          return returnString;
+      }
         if(!validationFunction.blankCheck(body.mobileNo)){
             returnString.status = false;
             returnString.statusCode = CONSTANT.responseCode.validation;

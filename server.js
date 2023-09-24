@@ -16,7 +16,9 @@ const regionRoute           = require("./route/regionManagementRoute");
 const userRoute             = require("./route/userRoute");
 const rateRoute             = require("./route/rateRoute");
 const rewardsRoute          = require("./route/rewardRoute");
-const walletRoute           = require("./route/walletRoute");    
+const walletRoute           = require("./route/walletRoute");
+const pinRoute              = require("./route/pinManagementRoute");
+const languageRoute         = require("./route/languageRoute");
 const app = express();
 app.use(cors({
   origin: '*'
@@ -44,7 +46,8 @@ app.use("/rate",rateRoute);
 app.use("/rewards",rewardsRoute);
 app.use("/wallet",walletRoute);
 app.use("/login",loginRoute);
-
+app.use("/pin",pinRoute);
+app.use("/language",languageRoute);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

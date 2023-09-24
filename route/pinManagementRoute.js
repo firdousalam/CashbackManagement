@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const userController = require("../controller/userController")
+const pinController = require("../controller/pinController")
 const commonFunction = require("../utils/commonFunction");
 router.use((req, res, next) => {
 
@@ -8,7 +8,7 @@ router.use((req, res, next) => {
    console.log("API Called ",new Date());
    
    //token autheticate
-  let authenticURL = ['/getLoginUserDetails'];
+  let authenticURL = ['/addNewPin','/updatePin'];
   console.log(req.path);
    if(authenticURL.includes(req.path))
    {
@@ -29,23 +29,15 @@ router.use((req, res, next) => {
      next()
    }
 })
+router.post("/addNewPin",function(req,res){
 
-router.post("/addUser",function(req,res){
-   userController.addNewUser(req,res);
+    pinController.addNewPin(req,res);
 })
-router.get("/getUsers",function(req,res){
-    userController.getAllUser(req,res);
+router.post("/updatePin",function(req,res){
+    pinController.updatePin(req,res);
  })
- router.post("/getLoginUserDetails",function(req,res){
-   userController.getLoginUserDetails(req,res);
+router.post("/validatePinForUser",function(req,res){
+    pinController.validatePinForUser(req,res);
 })
- router.get("/getUserByRegion/:region",function(req,res){
-   userController.getUserByRegion(req,res);
-})
- router.get("/getUser/:userId",function(req,res){
-   userController.getParticularUser(req,res);
- })
- router.post("/updateUser/:userId",function(req,res){
-    userController.updateUser(req,res);
- })
+
 module.exports = router;

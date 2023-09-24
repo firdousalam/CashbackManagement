@@ -10,6 +10,18 @@ const UserSchema = new mongoose.Schema({
     type: String,
     trim : true
   },
+  userName : {
+    type : String,
+    trim : true
+  },
+  pin : {
+    type : String,
+    trim : true
+  },
+  language : {
+    type : String,
+    trim : true
+  },
   password : {
     type : String,
     trim : true

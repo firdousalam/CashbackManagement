@@ -37,6 +37,8 @@ const loginController = {
                             // create JWT Token 
                             let payLoad = {
                                 email       : data[0].emailId,
+                                mobileNo    : data[0].mobileNo,
+                                id          : data[0]._id,
                                 firstName   : data[0].firstName,
                                 type        : "USER",
                                 adminType   : "" 
@@ -103,6 +105,7 @@ const loginController = {
                                 email           : data[0].emailId,
                                 firstName       : data[0].firstName,
                                 mobileNo        : data[0].mobileNo,
+                                id              : data[0]._id,
                                 userType        : "ADMIN",
                                 adminType       : adminAdminType
                             }
@@ -145,7 +148,7 @@ const loginController = {
             }
             userModel.find(condition).populate("region").then((list)=>{
                 if(list.length==0){
-                    httpResponse.message = CONSTANT.validation.adminWithMobileNoOrEmailExist;
+                    httpResponse.message = CONSTANT.validation.loginUserNotExist;
                     httpResponse.data = "";
                     res.status(403).send(httpResponse);
                    
@@ -350,6 +353,7 @@ const loginController = {
                         email       : data[0].emailId,
                         firstName   : data[0].firstName,
                         mobileNo    : data[0].mobileNo,
+                        id          : data[0]._id,
                         userType    : "ADMIN",
                         adminType   : adminAdminType
                     }
@@ -402,7 +406,8 @@ const loginController = {
                     let payLoad = {
                         email : data[0].emailId,
                         firstName : data[0].firstName,
-                        mobileNo : data[0].mobileNo
+                        mobileNo : data[0].mobileNo,
+                        id : data[0]._id
                     }
                     console.log(payLoad);
                     commonFunction.encryptJWT(payLoad,function(err, token) {

@@ -55,7 +55,9 @@ let constant = {
         "InSufficientBalance"       : "In Sufficient Balance",
         "blankCashBackId"           : "Please Select Cashback Details",
         "cashbackAlreadyUsed"       : "Cashback Already Being Used",
-        "noAccess"                  : "User Dont Have Access To Perform This Task"
+        "noAccess"                  : "User Dont Have Access To Perform This Task",
+        "blankRegionSelection"      : "Please select a country code",
+        "pinValidation"             : "Please enter 6 digit pin"
 
 
     },

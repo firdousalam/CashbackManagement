@@ -20,6 +20,8 @@ const userController = {
                 let insertData = {
                                     "firstName" : req.body.firstName,
                                     "lastName" : req.body.lastName,
+                                   
+                                    "userName" : req.body.userName,
                                     "password" : req.body.password,
                                     "address" : req.body.address,
                                     "emailId" : req.body.emailId,
@@ -118,11 +120,48 @@ const userController = {
             res.status(500).send(httpResponse);
         }
     },
+
+    getLoginUserDetails : function(req,res){
+        
+        userModel.find({"_id": req.body.authData.id}).then((list)=>{
+            let loginUserDetails = {
+                "mobileNo": list[0].mobileNo,
+                "status": list[0].status,
+                "userName": list[0].userName,
+                "region": list[0].region,
+                "language": list[0].language,
+                "firstName" : list[0].firstName,
+                "lastName" : list[0].lastName,
+                "address" : list[0].address,
+                "emailId" : list[0].emailId,                 
+            }
+
+            httpResponse.message = CONSTANT.validation.success;
+            httpResponse.data = loginUserDetails;
+            res.status(200).send(httpResponse);
+    
+        }).catch((err)=>{
+            httpResponse.message = CONSTANT.validation.error;
+            httpResponse.data = err;
+            res.status(500).send(httpResponse);
+        })
+    },
     "getParticularUser" : function(req,res){
         
         userModel.find({"_id":req.params.userId}).populate("region").then((list)=>{
+            let loginUserDetails = {
+                "mobileNo": list[0].mobileNo,
+                "status": list[0].status,
+                "userName": list[0].userName,
+                "region": list[0].region,
+                "language": list[0].language,
+                "firstName" : list[0].firstName,
+                "lastName" : list[0].lastName,
+                "address" : list[0].address,
+                "emailId" : list[0].emailId,                 
+            }
             httpResponse.message = CONSTANT.validation.success;
-            httpResponse.data = list;
+            httpResponse.data = loginUserDetails;
             res.status(200).send(httpResponse);
     
         }).catch((err)=>{
@@ -135,6 +174,7 @@ const userController = {
         let updateData = {
             "firstName" : req.body.firstName,
             "lastName" : req.body.lastName,
+            "userName" : req.body.userName,
             "address" : req.body.address,
             "emailId" : req.body.emailId,
             "mobileNo" : parseInt(req.body.mobileNo),
