@@ -430,6 +430,45 @@ const loginController = {
             httpResponse.data = validation;
             res.status(validation.statusCode).send(httpResponse);
           } 
-    }
+    },
+    "loginUserUsingPIN" : async function(req,res){
+    
+            let pin = req.body.pin;
+            let mobileNo = req.body.mobileNo;
+
+            // user exist or not with the email id provided if exist get it details
+            userModel.find({pin: pin,mobileNo : mobileNo}).then((data) => {
+                console.log(data);
+               if (data.length==0) {//if it do not have any user with given emailId
+                    httpResponse.message = CONSTANT.validation.loginUserNotExist;
+                    httpResponse.data = "";
+                    res.status(403).send(httpResponse);
+                } else {
+                    let payLoad = {
+                        email       : data[0].emailId,
+                        mobileNo    : data[0].mobileNo,
+                        id          : data[0]._id,
+                        firstName   : data[0].firstName,
+                        type        : "USER",
+                        adminType   : "" 
+                    }
+                    commonFunction.encryptJWT(payLoad,function(err, token) {
+                        
+                        if (err) {// any JWT Error or Not
+                            httpResponse.message = CONSTANT.validation.error;
+                            httpResponse.data = err;
+                            res.status(500).send(httpResponse);
+                        }else{
+                            httpResponse.message = CONSTANT.validation.loginSuccess;
+                            httpResponse.data = token;
+                            res.status(200).send(httpResponse);
+                        }
+                    });
+                }
+                   
+            })
+       
+      
+    },
 }
 module.exports = loginController;

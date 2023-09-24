@@ -34,4 +34,7 @@ router.post("/loginAdminUsingOTP",function(req,res){
 router.post("/loginUserUsingOTP",function(req,res){
     loginController.loginUserUsingOTP(req,res);
 })
+router.post("/loginUserUsingPIN",function(req,res){
+    loginController.loginUserUsingPIN(req,res);
+})
 module.exports = router;
