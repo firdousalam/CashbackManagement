@@ -65,7 +65,8 @@ const walletController = {
                         });
                     }else{
                         httpResponse.message = CONSTANT.validation.loginUserNotExist;
-                        httpResponse.data = "";
+                        httpResponse.data = {id : req.body.authData.id
+                        };
                         res.status(403).send(httpResponse);
                     }
 
