@@ -2,7 +2,7 @@ const express = require('express');
 const swaggerUi = require('swagger-ui-express');
 require('dotenv').config();
 const fs = require('fs-extra');
-
+var cors = require('cors')
 const swaggerDocument = require('./swagger.json');
 
 
@@ -17,7 +17,10 @@ const userRoute             = require("./route/userRoute");
 const rateRoute             = require("./route/rateRoute");
 const rewardsRoute          = require("./route/rewardRoute");
 const walletRoute           = require("./route/walletRoute");    
-const app = express()
+const app = express();
+app.use(cors({
+  origin: '*'
+}));
 const port = process.env.PORT;
 const environment = process.env.environment;
 
