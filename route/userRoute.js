@@ -48,4 +48,7 @@ router.get("/getUsers",function(req,res){
  router.post("/updateUser/:userId",function(req,res){
     userController.updateUser(req,res);
  })
+ router.post("/updateUserEmailAndUserName/:userId",function(req,res){
+   userController.updateUserEmailAndUserName(req,res);
+})
 module.exports = router;

@@ -72,9 +72,17 @@ const userController = {
                             res.status(500).send(httpResponse);
                         }
                     }else{
-                        httpResponse.message = CONSTANT.validation.userAlreadyExist;
-                        httpResponse.data = "";
-                        res.status(403).send(httpResponse);
+                        if(typeof userList[0].pin != 'undefined')
+                        {
+                            httpResponse.message = CONSTANT.validation.userAlreadyExist;
+                            httpResponse.data = "";
+                            res.status(403).send(httpResponse);
+                        }
+                        else{
+                            httpResponse.message = CONSTANT.validation.userAlreadyExistGenerateOTPAndPin;
+                            httpResponse.data = "";
+                            res.status(403).send(httpResponse);
+                        }
                     }
                 })
             }else{
@@ -174,7 +182,7 @@ const userController = {
             "userName" : req.body.userName,
             "address" : req.body.address,
             "emailId" : req.body.emailId,
-            "mobileNo" : parseInt(req.body.mobileNo),
+            "mobileNo" : req.body.mobileNo,
             "region"  : req.body.region
         };
         userModel.find({"status" : CONSTANT.applicationConstant.activeStatus,
@@ -225,5 +233,33 @@ const userController = {
             res.status(validation.statusCode).send(httpResponse);
         }
     },
+    "updateUserEmailAndUserName" : function(req,res){
+        let updateData = {
+            "userName" : req.body.userName,
+            "emailId" : req.body.emailId,
+        };
+        userModel.find({"status" : CONSTANT.applicationConstant.activeStatus,
+                 'emailId':req.body.emailId ,
+                '_id': {$ne :  req.params.userId}
+            }).then((list)=>{
+                if(list.length>0){
+                    httpResponse.message = CONSTANT.validation.adminWithMobileNoOrEmailExist;
+                    httpResponse.data = "";
+                    res.status(403).send(httpResponse);
+                   
+                }else{
+                    userModel.findOneAndUpdate({"_id":req.params.userId},updateData)
+                    .then((updatedData)=>{
+                        httpResponse.message = CONSTANT.validation.success;
+                        httpResponse.data = updateData;
+                        res.status(200).send(httpResponse);
+                    })
+                }
+              }).catch((err)=>{
+                httpResponse.message = CONSTANT.validation.error;
+                httpResponse.data = err;
+                res.status(500).send(httpResponse);
+              })
+    }
 }
 module.exports = userController;
