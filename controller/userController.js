@@ -129,7 +129,8 @@ const userController = {
                 "firstName" : list[0].firstName,
                 "lastName" : list[0].lastName,
                 "address" : list[0].address,
-                "emailId" : list[0].emailId,                 
+                "emailId" : list[0].emailId,
+                "userId" : list[0]._id,                 
             }
 
             httpResponse.message = CONSTANT.validation.success;
