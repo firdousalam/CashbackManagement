@@ -7,15 +7,11 @@ const SMS = require("../utils/SMS")
 const userController = {
     "addNewUser" : async function(req,res){
         // we will call one function and do validation from there
-        let updateData = {
-            "otp" : commonFunction.generateRandonPID(),
-            "otpDateTime" : new Date(),
-            "otpType"  : "Login"
-        };
+       
         let RegisterUsing = "";
         try{
             const validation = commonFunction.userValidation(req.body)
-            console.log(validation);
+           
             if(validation.status == true){// is validation successfull
                 let insertData = {
                                     "firstName" : req.body.firstName,
@@ -55,9 +51,9 @@ const userController = {
                                     .then((InsertedData)=>{
                                         
                                         let mobileNo = InsertedData[0].region.countryCode + InsertedData[0].mobileNo
-                                        SMS.sendOTP(mobileNo,updateData.otp)
+                                        SMS.sendOTP(mobileNo,InsertedData.otp)
                                         httpResponse.message = CONSTANT.validation.OTPGenerateSuccessfully;
-                                        httpResponse.data = updateData.otp;
+                                        httpResponse.data = InsertedData[0].otp;
                                     
                                         res.status(200).send(httpResponse);
                                     });
@@ -76,7 +72,7 @@ const userController = {
                             res.status(500).send(httpResponse);
                         }
                     }else{
-                        httpResponse.message = CONSTANT.validation.adminWithMobileNoOrEmailExist;
+                        httpResponse.message = CONSTANT.validation.userAlreadyExist;
                         httpResponse.data = "";
                         res.status(403).send(httpResponse);
                     }

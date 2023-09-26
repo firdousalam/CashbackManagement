@@ -57,7 +57,8 @@ let constant = {
         "cashbackAlreadyUsed"       : "Cashback Already Being Used",
         "noAccess"                  : "User Dont Have Access To Perform This Task",
         "blankRegionSelection"      : "Please select a country code",
-        "pinValidation"             : "Please enter 6 digit pin"
+        "pinValidation"             : "Please enter 6 digit pin",
+        "userAlreadyExist"          : "User Already Exist,Please Login",
 
 
     },

@@ -155,7 +155,10 @@ const commonFunction = {
       return returnString;
   },
     "generateRandonPID" : function(){
-        return Math.floor(Math.random() * 900000) + 1;
+          var minm = 100000;
+          var maxm = 999999;
+          return Math.floor(Math
+          .random() * (maxm - minm + 1)) + minm;
 
     },
     "cleanLoggerFile" : function(){
