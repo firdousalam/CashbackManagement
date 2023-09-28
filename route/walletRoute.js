@@ -40,4 +40,8 @@ router.get("/getAllWalletAddedToday",function(req,res){
 router.get("/getAllWalletRedeemToday",function(req,res){
     walletController.getAllWalletRedeemToday(req,res);
 })
+
+router.get("/getAlletWalletDetailsOfUser/:userId",function(req,res){
+  walletController.getAlletWalletDetailsOfUser(req,res);
+})
 module.exports = router;

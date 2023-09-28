@@ -339,6 +339,32 @@ const walletController = {
                 httpResponse.data = err;
                 res.status(500).send(httpResponse);
               })
+        },
+        "getAlletWalletDetailsOfUser" : function(req,res){
+            console.log("getting all wallet for user",req.params);
+            const validation = commonFunction.userIdValidation(req.params)
+            if(validation.status == true){// is validation successfull
+                let { page, size, sort } = req.query;
+                const { limit, offset } = commonFunction.getPagination(page, size);//{ offset, limit }
+                walletModel.find({"user" : req.params.userId})
+                .skip(offset)
+                .limit(limit)
+                .then((list)=>{
+                    httpResponse.message = CONSTANT.validation.success;
+                    httpResponse.data = list;
+                    res.status(200).send(httpResponse);
+            
+                }).catch((err)=>{
+                    httpResponse.message = CONSTANT.validation.error;
+                    httpResponse.data = err;
+                    res.status(500).send(httpResponse);
+                })
+            }else{
+                
+                httpResponse.message = validation.message;
+                httpResponse.data = validation;
+                res.status(validation.statusCode).send(httpResponse);
+            }
         }
 }
 module.exports = walletController;
