@@ -1,6 +1,7 @@
 const walletModel = require("../model/walletSchema");
 const CONSTANT = require("../utils/constant") 
 const commonFunction = require("../utils/commonFunction");
+var mongoose = require('mongoose');
 let httpResponse = CONSTANT.HttpResponse;
 function checkAdult(details,condition) {
     return details._id.user == condition;
@@ -267,7 +268,18 @@ const walletController = {
         "getUserWalletBalance" : function(req,res){
             const validation = commonFunction.userIdValidation(req.params)
             if(validation.status == true){
+                let match = { 'user': new mongoose.Types.ObjectId(req.params.userId)};
+                if(typeof req.query.startDate != 'undefined' && typeof req.query.endDate != 'undefined'){
+                    match.dateTime = {
+                        '$gte': new Date(req.query.startDate), 
+                        '$lt': new Date(req.query.endDate)
+                      }
+                }
+                console.log(match);
                 walletModel.aggregate([
+                    {
+                        '$match': match
+                    },
                     {
                         $group: {
                         _id: {"user" : "$user","walletType" : "$walletType"},
@@ -282,7 +294,7 @@ const walletController = {
                     let wallet = data.walletAmount;
                     let redeem = data.radeemAmount;
                     let balance = wallet-redeem;
-                    console.log("bbbbbbb",data);
+                  
                     httpResponse.message = CONSTANT.validation.success;
                     httpResponse.data = {
                         "totalWallet" : wallet,
