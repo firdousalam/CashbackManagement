@@ -117,7 +117,7 @@ const loginController = {
                                     res.status(500).send(httpResponse);
                                 }else{
                                     httpResponse.message = CONSTANT.validation.loginSuccess;
-                                    httpResponse.data = token;
+                                    httpResponse.data = {"token" : token,"adminId" : data[0]._id}
                                     res.status(200).send(httpResponse);
                                   
                                 }
