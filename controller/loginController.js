@@ -470,5 +470,15 @@ const loginController = {
        
       
     },
+    logoutUser :  function(req,res){
+        httpResponse.message = CONSTANT.validation.userLogoutSuccess;
+        httpResponse.data = token;
+        res.status(200).send(httpResponse);
+    },
+    logoutAdmin :  function(req,res){
+        httpResponse.message = CONSTANT.validation.adminLogoutSuccess;
+        httpResponse.data = token;
+        res.status(200).send(httpResponse);
+    },
 }
 module.exports = loginController;

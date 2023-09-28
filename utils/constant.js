@@ -60,6 +60,8 @@ let constant = {
         "pinValidation"             : "Please enter 6 digit pin",
         "userAlreadyExist"          : "User Already Exist,Please Login",
         "userAlreadyExistGenerateOTPAndPin"  : "User Already Exist,Please generate OTP to Add Pin",
+        "userLogoutSuccess"         : "User Logout Successfully",
+        "adminLogoutSuccess"        : "Admin Logout Successfully"
 
 
     },

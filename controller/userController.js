@@ -51,7 +51,7 @@ const userController = {
                                     .then((InsertedData)=>{
                                         
                                         let mobileNo = InsertedData[0].region.countryCode + InsertedData[0].mobileNo
-                                        SMS.sendOTP(mobileNo,InsertedData.otp)
+                                        SMS.sendOTP(mobileNo,InsertedData[0].otp)
                                         httpResponse.message = CONSTANT.validation.OTPGenerateSuccessfully;
                                         httpResponse.data = InsertedData[0].otp;
                                     

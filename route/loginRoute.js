@@ -37,4 +37,10 @@ router.post("/loginUserUsingOTP",function(req,res){
 router.post("/loginUserUsingPIN",function(req,res){
     loginController.loginUserUsingPIN(req,res);
 })
+router.post("/logoutUser",function(req,res){
+    loginController.logoutUser(req,res);
+})
+router.post("/logoutAdmin",function(req,res){
+    loginController.logoutAdmin(req,res);
+})
 module.exports = router;
