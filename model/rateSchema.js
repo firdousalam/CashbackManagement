@@ -7,7 +7,7 @@ const rateSchema = new mongoose.Schema({
     required : true,
     trim : true
   },
-   rate : {
+  rate : {
     type: Number
   },
   point : {

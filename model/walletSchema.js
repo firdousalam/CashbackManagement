@@ -29,7 +29,15 @@ const WalletSchema = new mongoose.Schema({
   startDate : {type : Date},
   endDate : {type : Date},
   amount : {
-    type : Number
+    type : Number,
+    default : 0
+  },
+  point : {
+    type : Number,
+    default : 0
+  },
+  currency : {
+    type : String
   },
 
   

@@ -13,13 +13,14 @@ const walletController = {
             let insertData = {
                                 "user"                  : req.body.user,
                                 "insertedBy"            : req.body.insertedBy,
-                                
                                 "reward"                : req.body.reward,
                                 "description"           : req.body.description,
                                 "walletType"            : req.body.walletType,
                                 "startDate"             : req.body.startDate,
                                 "endDate"               : req.body.endDate,
-                                "amount"                : req.body.amount
+                                "amount"                : req.body.amount,
+                                "point"                 : req.body.point,
+                                "currency"              : req.body.currency
                             };
             if(typeof req.body.adminId != 'undefined' && req.body.adminId != ''){
                 insertData.adminId = req.body.adminId;
@@ -85,6 +86,7 @@ const walletController = {
             let { page, size, sort } = req.query;
             const { limit, offset } = commonFunction.getPagination(page, size);//{ offset, limit }
             walletModel.find({"user" : req.params.userId,"walletType" : CONSTANT.applicationConstant.walletType})
+            .populate('reward')
             .skip(offset)
             .limit(limit)
             .then((list)=>{

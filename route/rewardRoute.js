@@ -7,6 +7,7 @@ router.use((req, res, next) => {
     next()
 })
 router.post("/addreward",function(req,res){
+  console.log("added");
   rewardController.addNewReward(req,res);
 })
 router.get("/getAllReward",function(req,res){
