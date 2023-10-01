@@ -3,9 +3,7 @@ const CONSTANT = require("../utils/constant")
 const commonFunction = require("../utils/commonFunction");
 var mongoose = require('mongoose');
 let httpResponse = CONSTANT.HttpResponse;
-function checkAdult(details,condition) {
-    return details._id.user == condition;
-  }
+
 const walletController = {
     "addNewWallet" : async function(req,res){
 
