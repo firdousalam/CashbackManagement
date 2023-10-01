@@ -19,6 +19,10 @@ router.get("/getAllSaving",function(req,res){
     savingController.getUserSaving(req,res);
  })
 
+ router.get("/getUserTotalSaving/:userId",function(req,res){
+    savingController.getUserTotalSaving(req,res);
+ })
+
  router.post("/updateSaving/:savingId",function(req,res){
     savingController.updateSaving(req,res);
  })

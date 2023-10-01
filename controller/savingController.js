@@ -151,6 +151,42 @@ const SavingController = {
                 httpResponse.data = validation;
                 res.status(validation.statusCode).send(httpResponse);
             } 
+        },
+        "getUserTotalSaving" : function(req,res){
+        
+            const validation = commonFunction.userIdValidation(req.params)
+            if(validation.status == true){// is validation successfull
+                let match = { 'user': new mongoose.Types.ObjectId(req.params.userId)};
+                SavingModel.aggregate([
+                    {
+                        '$match': match
+                    },
+                    {
+                        $group: {
+                            _id: {"user" : "$user"},
+                            "totalMoney" : {
+                                $sum : "$amount",
+                            
+                                }
+                        }
+                    }
+                ] )
+                .then((list)=>{
+                    httpResponse.message = CONSTANT.validation.success;
+                    httpResponse.data = list;
+                    res.status(200).send(httpResponse);
+            
+                }).catch((err)=>{
+                    httpResponse.message = CONSTANT.validation.error;
+                    httpResponse.data = err;
+                    res.status(500).send(httpResponse);
+                })
+            }else{
+                
+                httpResponse.message = validation.message;
+                httpResponse.data = validation;
+                res.status(validation.statusCode).send(httpResponse);
+            }
         }
 }
 module.exports = SavingController;
