@@ -7,14 +7,8 @@ const rateSchema = new mongoose.Schema({
     required : true,
     trim : true
   },
-  rate : {
+   rate : {
     type: Number
-  },
-  point : {
-    type: Number
-  },
-  currency : {
-    type: String
   },
   dateTime : {type : Date, default: Date.now},
   region      : {type : Schema.Types.ObjectId,ref:'region'},

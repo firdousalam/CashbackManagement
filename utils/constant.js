@@ -61,11 +61,7 @@ let constant = {
         "userAlreadyExist"          : "User Already Exist,Please Login",
         "userAlreadyExistGenerateOTPAndPin"  : "User Already Exist,Please generate OTP to Add Pin",
         "userLogoutSuccess"         : "User Logout Successfully",
-        "adminLogoutSuccess"        : "Admin Logout Successfully",
-        "blankAmount"               : "Please Provide Amount",
-        "blankDurationInMonth"      : "Please Provide Duration In Month",
-        "blankRateOfInterest"       : "Please Provide Rate Of Interest",
-        "blankMaturityDate"         : "Please Provide Maturity Date"
+        "adminLogoutSuccess"        : "Admin Logout Successfully"
 
 
     },

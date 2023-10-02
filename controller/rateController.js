@@ -10,8 +10,6 @@ const userController = {
             let insertData = {
                                 "name" : req.body.name,
                                 "rate" : req.body.rate,
-                                "point" : req.body.point,
-                                "currency" : req.body.currency,
                                 "region" : req.body.region,
                                 "rateType" : req.body.rateType
                             };

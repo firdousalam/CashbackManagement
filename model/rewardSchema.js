@@ -14,15 +14,9 @@ const RewardSchema = new mongoose.Schema({
   },
   region  : {
     type        : Schema.Types.ObjectId,ref:'region'},
-    rate : {
-      type: Number
-    },
-    point : {
-      type: Number
-    },
-    currency : {
-      type: String
-    },
+  rewardConversionRate :  { 
+      type : Schema.Types.ObjectId,ref:'rate'
+  },
   description : {
     type: String
   },

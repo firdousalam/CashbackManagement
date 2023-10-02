@@ -4,17 +4,14 @@ const commonFunction = require("../utils/commonFunction");
 let httpResponse = CONSTANT.HttpResponse;
 const rewardController = {
     "addNewReward" : async function(req,res){
-        
+        // we will call one function and do validation from there
         const validation = commonFunction.rewardValidation(req.body)
-        console.log(req.body);
         if(validation.status == true){// is validation successfull
             let insertData = {
                                 "rewardName"            : req.body.rewardName,
                                 "rewardType"            : req.body.rewardType,
                                 "region"                : req.body.region,
-                                "rate"                  : req.body.rate,
-                                "point"                 : req.body.point,
-                                "currency"              : req.body.currency,
+                                "rewardConversionRate"  : req.body.rewardConversionRate,
                                 "description"           : req.body.description,
                                 "rewardsUrl"            : req.body.rewardsUrl,
                                 "startDate"             : req.body.startDate,
@@ -62,7 +59,7 @@ const rewardController = {
         let { page, size, sort } = req.query;
         const { limit, offset } = commonFunction.getPagination(page, size);//{ offset, limit }
         rewardModel.find({})
-       
+        .populate("rewardConversionRate")
         .skip(offset)
         .limit(limit)
         .then((list)=>{
@@ -78,6 +75,7 @@ const rewardController = {
     },
     "getParticularReward" : function(req,res){
         rewardModel.find({"_id":req.params.rewardId})
+        .populate("rewardConversionRate")
         .populate("region")
         .then((list)=>{
             httpResponse.message = CONSTANT.validation.success;
@@ -95,9 +93,7 @@ const rewardController = {
             "rewardName"            : req.body.rewardName,
             "rewardType"            : req.body.rewardType,
             "region"                : req.body.region,
-            "rate"                  : req.body.rate,
-            "point"                 : req.body.point,
-            "currency"              : req.body.currency,
+            "rewardConversionRate"  : req.body.rewardConversionRate,
             "description"           : req.body.description,
             "rewardsUrl"            : req.body.rewardsUrl,
             "startDate"             : req.body.startDate,

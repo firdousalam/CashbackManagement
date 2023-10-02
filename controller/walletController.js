@@ -1,9 +1,10 @@
 const walletModel = require("../model/walletSchema");
 const CONSTANT = require("../utils/constant") 
 const commonFunction = require("../utils/commonFunction");
-var mongoose = require('mongoose');
 let httpResponse = CONSTANT.HttpResponse;
-
+function checkAdult(details,condition) {
+    return details._id.user == condition;
+  }
 const walletController = {
     "addNewWallet" : async function(req,res){
 
@@ -13,14 +14,13 @@ const walletController = {
             let insertData = {
                                 "user"                  : req.body.user,
                                 "insertedBy"            : req.body.insertedBy,
+                                
                                 "reward"                : req.body.reward,
                                 "description"           : req.body.description,
                                 "walletType"            : req.body.walletType,
                                 "startDate"             : req.body.startDate,
                                 "endDate"               : req.body.endDate,
-                                "amount"                : req.body.amount,
-                                "point"                 : req.body.point,
-                                "currency"              : req.body.currency
+                                "amount"                : req.body.amount
                             };
             if(typeof req.body.adminId != 'undefined' && req.body.adminId != ''){
                 insertData.adminId = req.body.adminId;
@@ -86,7 +86,6 @@ const walletController = {
             let { page, size, sort } = req.query;
             const { limit, offset } = commonFunction.getPagination(page, size);//{ offset, limit }
             walletModel.find({"user" : req.params.userId,"walletType" : CONSTANT.applicationConstant.walletType})
-            .populate('reward')
             .skip(offset)
             .limit(limit)
             .then((list)=>{
@@ -268,18 +267,7 @@ const walletController = {
         "getUserWalletBalance" : function(req,res){
             const validation = commonFunction.userIdValidation(req.params)
             if(validation.status == true){
-                let match = { 'user': new mongoose.Types.ObjectId(req.params.userId)};
-                if(typeof req.query.startDate != 'undefined' && typeof req.query.endDate != 'undefined'){
-                    match.dateTime = {
-                        '$gte': new Date(req.query.startDate), 
-                        '$lt': new Date(req.query.endDate)
-                      }
-                }
-                console.log(match);
                 walletModel.aggregate([
-                    {
-                        '$match': match
-                    },
                     {
                         $group: {
                         _id: {"user" : "$user","walletType" : "$walletType"},
@@ -294,7 +282,7 @@ const walletController = {
                     let wallet = data.walletAmount;
                     let redeem = data.radeemAmount;
                     let balance = wallet-redeem;
-                  
+                    console.log("bbbbbbb",data);
                     httpResponse.message = CONSTANT.validation.success;
                     httpResponse.data = {
                         "totalWallet" : wallet,
@@ -359,6 +347,7 @@ const walletController = {
                 let { page, size, sort } = req.query;
                 const { limit, offset } = commonFunction.getPagination(page, size);//{ offset, limit }
                 walletModel.find({"user" : req.params.userId})
+                .populate('reward')
                 .skip(offset)
                 .limit(limit)
                 .then((list)=>{

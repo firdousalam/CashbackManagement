@@ -610,46 +610,6 @@ const commonFunction = {
     var todaydate = new Date();
     
       return new Date(todaydate.getFullYear() , (todaydate.getMonth()),todaydate.getDate(),0,0,1)
-  },
-  SavingValidation : function(body){
-    let returnString = {"status" : true,"statusCode":"","message" : "success"}
-    if(!validationFunction.blankCheck(body)){
-      returnString.status = false;
-      returnString.statusCode = CONSTANT.responseCode.validation;
-      returnString.message = CONSTANT.validation.blankCommonMessage;
-      return returnString;
-    }
-    if(!validationFunction.blankCheck(body.user)){
-      returnString.status = false;
-      returnString.statusCode = CONSTANT.responseCode.validation;
-      returnString.message = CONSTANT.validation.userBlankCheck;
-      return returnString;
-    }
-    if(!validationFunction.blankCheck(body.amount)){
-      returnString.status = false;
-      returnString.statusCode = CONSTANT.responseCode.validation;
-      returnString.message = CONSTANT.validation.blankAmount;
-      return returnString;
-    }
-    if(!validationFunction.blankCheck(body.durationInMonth)){
-      returnString.status = false;
-      returnString.statusCode = CONSTANT.responseCode.validation;
-      returnString.message = CONSTANT.validation.blankDurationInMonth;
-      return returnString;
-    }
-    if(!validationFunction.blankCheck(body.rateOfInterest)){
-      returnString.status = false;
-      returnString.statusCode = CONSTANT.responseCode.validation;
-      returnString.message = CONSTANT.validation.blankRateOfInterest;
-      return returnString;
-    }
-    if(!validationFunction.blankCheck(body.maturityDate)){
-      returnString.status = false;
-      returnString.statusCode = CONSTANT.responseCode.validation;
-      returnString.message = CONSTANT.validation.blankMaturityDate;
-      return returnString;
-    }
-    return returnString
   }
 }
 module.exports = commonFunction;
